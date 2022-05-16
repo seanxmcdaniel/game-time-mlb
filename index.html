@@ -2,56 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/assets/css/app.css">
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <title> Game Time MLB </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Time MLB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
-    <!-- Add MLB logo and styling to the header, use Foundation-->
-    <header class="header">Game Time MLB</header>
 
-    <!--Style the UL using CSS and Foundation-->
-    <div class="teams">
-        <h1> Choose your favorite MLB team: </h1>
-        <ul>
-            <li><button>Atlanta Braves</button></li>
-            <li><button>Miami Marlins</button></li>
-            <li><button>New York Mets</button></li>
-            <li><button>Philadelphia Phillies</button></li>
-            <li><button>Washington Nationals</button></li>
-            <li><button>Central</button></li>
-            <li><button>Chicago Cubs</button></li>
-            <li><button>Cincinnati Reds</button></li>
-            <li><button>Milwaukee Brewers</button></li>
-            <li><button>Pittsburgh Pirates</button></li>
-            <li><button>St. Louis Cardinals</button></li>
-            <li><button>Arizona Diamondbacks</button></li>
-            <li><button>Colorado Rockies</button></li>
-            <li><button>Los Angeles Dodgers</button></li>
-            <li><button>San Diego Padres</button></li>
-            <li><button>San Francisco Giants</button></li>
-            <li><button>American League</button></li>
-            <li><button>Baltimore Orioles</button></li>
-            <li><button>Boston Red Sox</button></li>
-            <li><button>New York Yankees</button></li>
-            <li><button>Tampa Bay Rays</button></li>
-            <li><button>Toronto Blue Jays</button></li>
-            <li><button>Chicago White Sox</button></li>
-            <li><button>Cleveland Indians</button></li>
-            <li><button>Detroit Tigers</button></li>
-            <li><button>Kansas City Royals</button></li>
-            <li><button>Minnesota Twins</button></li>
-            <li><button>Houston Astros</button></li>
-            <li><button>Los Angeles Angels</button></li>
-            <li><button>Oakland Athletics</button></li>
-            <li><button>Seattle Mariners</button></li>
-            <li><button>Texas Rangers</button></li>
-        </ul>
+    <div class="hero has-text-centered is-size-1 has-background-primary">
+        <h1>Game Time <strong>MLB</strong></h1>
     </div>
+
+    <div class="container" style="height:500px;display:flex;justify-content:center;align-items:center;">
+        <div class="columns has-text-centered is-size-4">
+            <div class="column">
+                <label for="teams">Choose your favorite MLB team: </label>
+                <br>
+                <select name="team-select" id="team-select">
+                    <option value="Atlanta Braves">Atlanta Braves</option>
+                    <option value="Miami Marlins">Miami Marlins</option>
+                    <option value="New York Mets">New York Mets</option>
+                    <option value="Philadelphia Phillies">Philadelphia Phillies</option>
+                    <option value="Washington Nationals">Washington Nationals</option>
+                    <option value="Chicago Cubs">Chicago Cubs</option>
+                    <option value="Cincinnati Reds">Cincinnati Reds</option>
+                    <option value="Milwaukee Brewers">Milwaukee Brewers</option>
+                    <option value="Pittsburgh Pirates">Pittsburgh Pirates</option>
+                    <option value="St. Louis Cardinals">St. Louis Cardinals</option>
+                    <option value="Arizona Diamondbacks">Arizona Diamondbacks</option>
+                    <option value="Colorado Rockies">Colorado Rockies</option>
+                    <option value="Los Angeles Dodgers">Los Angeles Dodgers</option>
+                    <option value="San Diego Padres">San Diego Padres</option>
+                    <option value="San Francisco Giants">San Francisco Giants</option>
+                    <option value="Baltimore Orioles">Baltimore Orioles</option>
+                    <option value="Boston Red Sox">Boston Red Sox</option>
+                    <option value="New York Yankees">Pumpernickel</option>
+                    <option value="Tampa Bay Rays">Tampa Bay Rays</option>
+                    <option value="Toronto Blue Jays">Toronto Blue Jays</option>
+                    <option value="Chicago White Sox">Chicago White Sox</option>
+                    <option value="Cleveland Indians">Cleveland Indians</option>
+                    <option value="Detroit Tigers">Detroit Tigers</option>
+                    <option value="Kansas City Royals">Kansas City Royals</option>
+                    <option value="Minnesota Twins">Minnesota Twins</option>
+                    <option value="Houston Astros">Houston Astros</option>
+                    <option value="Los Angeles Angels">Los Angeles Angels</option>
+                    <option value="Oakland Athletics">Oakland Athletics</option>
+                    <option value="Seattle Mariners">Seattle Mariners</option>
+                    <option value="Texas Rangers">Texas Rangers</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myScheduleKey = "?key=a3812c15735a4f739f3d2de60c5fd0bd";
+        var scheduleApi = "https://api.sportsdata.io/v3/mlb/scores/json/Games/" // + {season}
+
+        fetch('https://api.sportsdata.io/v3/mlb/scores/json/Games/2022?key=a3812c15735a4f739f3d2de60c5fd0bd')
+            .then(response => response.json())
+            .then(data => console.log(data));
+    </script>
 </body>
 
 </html>
