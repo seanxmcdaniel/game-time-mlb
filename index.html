@@ -13,16 +13,17 @@
 
 <body>
 
-    <div class="hero has-text-centered is-size-1 has-background-primary">
+    <div class="hero has-text-centered is-size-1 has-background-black has-text-light">
         <h1>Game Time <strong>MLB</strong></h1>
     </div>
 
-    <div class="container" style="height:500px;display:flex;justify-content:center;align-items:center;">
+    <div class="container center">
         <div class="columns has-text-centered is-size-4">
             <div class="column">
                 <label for="teams">Choose your favorite MLB team: </label>
                 <br>
                 <select name="team-select" id="team-select">
+                    <option id="savedTeam"></option>
                     <option value="ATL">Atlanta Braves</option">
                     <option value="MIA">Miami Marlins</option">
                     <option value="NYM">New York Mets</option>
@@ -55,26 +56,14 @@
                     <option value="TEX">Texas Rangers</option>
                 </select>
                 <button class="show-schedule">Show Schedule</button>
-                <button class="show-stats">Show Stats</button>
+                <button class="watch-game">Watch a Game</button>
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="schedule">
-            <ul class="scheduleList">
-                <li>
-
-                </li>
-                <li>
-                    
-                </li>
-                <li>
-                    
-                </li>
-                <li>
-                    
-                </li>
+            <ul class="scheduleList has-text-centered">
             </ul>
         </div>
     </div>
