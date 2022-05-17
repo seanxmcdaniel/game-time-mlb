@@ -29,12 +29,13 @@ function fetchSchedule() {
   .then(function(data){
     for (var i = 0; i < data.length; i++) {
       var listItem = document.createElement('li');
+      var lineBreak = document.createElement('br');
       // Conditionals for choosing only the schedule for selected teams.
       if(data[i].AwayTeam === selectTeam.value){
-        listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' ' + data[i].DateTime;
+        listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam;
         scheduleList.appendChild(listItem);
       } else if(data[i].HomeTeam === selectTeam.value) {
-        listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' ' + data[i].DateTime;
+        listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam;
         scheduleList.appendChild(listItem);
       } else if(data[i].DateTime < currentDay) {
        console.log(data[i].DateTime + 'game has passed!');

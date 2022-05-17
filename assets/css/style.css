@@ -4,7 +4,36 @@
     align-items: center;
 }
 
+.hero {
+    padding: 20px;
+}
+
 li {
     background-color: rgb(225, 225, 225);
-    padding: 10px 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.container {
+    padding: 20px;
+}
+
+select {
+    padding: 5px 80px;
+    border-radius: 8px;
+}
+
+button {
+    margin: 20px 0;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(78, 78, 78);
+    color:rgb(225, 225, 225)
+}
+
+button:hover {
+    background-color: rgb(143, 143, 143);
+    color:rgb(20, 20, 20);
+    transition: 250ms;
 }
