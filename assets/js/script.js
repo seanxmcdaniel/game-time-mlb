@@ -5,12 +5,16 @@ var selectTeam = document.getElementById('team-select')
 var currentDay = moment().format("YYYY-MM-DDThh:mm:ss")
 var savedTeam = document.getElementById('savedTeam')
 
+
+// When document loads, get favorite team from local storage and 
+// put the value inside of the dropdown menu.
 $('document').ready(function() {
   for (let i = 0; i < localStorage.length; i++) {
     const favTeam = localStorage.favTeam;
 
     savedTeam.innerHTML += favTeam;
   }
+  // For our developing purposes, console log current day and favorite team
   console.log(currentDay)
   console.log(savedTeam.value)
 });
@@ -25,6 +29,7 @@ function fetchSchedule() {
   .then(function(data){
     for (var i = 0; i < data.length; i++) {
       var listItem = document.createElement('li');
+      // Conditionals for choosing only the schedule for selected teams.
       if(data[i].AwayTeam === selectTeam.value){
         listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' ' + data[i].DateTime;
         scheduleList.appendChild(listItem);
@@ -44,7 +49,9 @@ function fetchSchedule() {
 
 $('.show-schedule').click(fetchSchedule);
 
+// On second click, clear local storage and remove previous schedule
 $('.show-schedule').click(function () {
   $('li').remove()
   localStorage.clear()
 }, fetchSchedule);
+// Then fetch new schedule and set new favorite team
