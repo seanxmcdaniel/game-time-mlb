@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Time MLB</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -20,10 +21,10 @@
                 <label for="teams">Choose your favorite MLB team: </label>
                 <br>
                 <select name="team-select" id="team-select">
-                    <option value="ATL">Atlanta Braves</option>
-                    <option value="MIA">Miami Marlins</option>
+                    <option value="ATL">Atlanta Braves</option">
+                    <option value="MIA">Miami Marlins</option">
                     <option value="NYM">New York Mets</option>
-                    <option value="PHI">Philadelphia Phillies</option>
+                    <option value="PHI">Philadelphia Phillies</option">
                     <option value="WSH">Washington Nationals</option>
                     <option value="CHC">Chicago Cubs</option>
                     <option value="CIN">Cincinnati Reds</option>
@@ -51,18 +52,32 @@
                     <option value="SEA">Seattle Mariners</option>
                     <option value="TEX">Texas Rangers</option>
                 </select>
+                <button class="show-schedule">Show Schedule</button>
+                <button class="show-stats">Show Stats</button>
             </div>
         </div>
     </div>
 
-    <script>
-        var myScheduleKey = "?key=a3812c15735a4f739f3d2de60c5fd0bd";
-        var scheduleApi = "https://api.sportsdata.io/v3/mlb/scores/json/Games/" // + {season}
+    <div class="container">
+        <div class="schedule">
+            <ul class="scheduleList">
+                <li>
 
-        fetch('https://api.sportsdata.io/v3/mlb/scores/json/Games/2022?key=a3812c15735a4f739f3d2de60c5fd0bd')
-            .then(response => response.json())
-            .then(data => console.log(data));
-    </script>
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    
+                </li>
+                <li>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
