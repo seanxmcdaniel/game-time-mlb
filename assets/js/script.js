@@ -63,11 +63,11 @@ function fetchBroadcast() {
     .then(function (response) {
       return response.json();
     })
-    // Creates <li> for each game time, and appends the schedule data to a new <li>.
+    // Creates <li> for each game time, and appends the broadcast data to a new <li>.
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var broadInfo = document.createElement('li');
-        // Conditionals for choosing only the schedule for selected teams.
+        // Conditionals for choosing only the broadcast info for selected team.
         if (data[i].away_team_abbrev === selectTeam.value) {
           broadInfo.textContent = 'You can watch' + data[i].away_team_full + 'play against' + data[i].home_team_full + 'today at' + data[i].game_time_away + 'on' + data[i].source_desc + ".";
           broadList.appendChild(broadInfo);
