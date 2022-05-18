@@ -7,6 +7,7 @@ var selectTeam = document.getElementById('team-select')
 var currentDay = moment().format("YYYY-MM-DDThh:mm:ss")
 var broadDate = moment().format("YYYYMMDD")
 var savedTeam = document.getElementById('savedTeam')
+var broadBtn = document.querySelector('.watch-game')
 
 fetch(broadApi + "&start_date='" + broadDate + "'" + "&end_date='" + broadDate + "'" + "&season='2022'")
     .then(function (response) {
@@ -27,7 +28,6 @@ $('document').ready(function () {
   }
   // For our developing purposes, console log current day and favorite team
   console.log(currentDay)
-  console.log(savedTeam.value)
 });
 
 // Fetches schedule API, returns JSON
@@ -49,9 +49,7 @@ function fetchSchedule() {
           scheduleList.appendChild(listItem);
         } else if (data[i].DateTime < currentDay) {
           $('li').remove();
-        } //else if(broadList) {
-        //$('.broadList').remove();}
-      }
+        }}
     })
   // Save selected team (value of the select in HTML) to local storage
   localStorage.setItem('favTeam', selectTeam.value)
@@ -67,17 +65,18 @@ function fetchBroadcast() {
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var broadInfo = document.createElement('li');
+        var team = localStorage.getItem('favTeam')
         // Conditionals for choosing only the broadcast for selected teams.
-        if (data[i].away_team_abbrev === selectTeam.value) {
+        if (data[i].away_team_abbrev === team) {
           broadInfo.textContent = 'You can watch' + data[i].away_team_full + 'play against' + data[i].home_team_full + 'today at' + data[i].game_time_away + 'on' + data[i].source_desc + ".";
           broadList.appendChild(broadInfo);
-        } else if (data[i].home_team_abbrev === selectTeam.value) {
+        } else if (data[i].home_team_abbrev === team) {
           broadInfo.textContent = 'You can watch' + data[i].home_team_full + 'play against' + data[i].away_team_full + 'today at' + data[i].game_time_home + 'on' + data[i].source_desc + ".";
           broadList.appendChild(broadInfo);
         }
       }
-    })
-};
+    }
+  )};
 
 $('.show-schedule').click(fetchSchedule);
 
@@ -88,4 +87,4 @@ $('.show-schedule').click(function () {
 }, fetchSchedule);
 // Then fetch new schedule and set new favorite team
 
-$('.watch-game').click(fetchBroadcast)
+broadBtn.addEventListener('click', fetchBroadcast);
