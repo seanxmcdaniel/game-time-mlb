@@ -9,15 +9,6 @@ var broadDate = moment().format("YYYYMMDD")
 var savedTeam = document.getElementById('savedTeam')
 var broadBtn = document.querySelector('.watch-game')
 
-fetch(broadApi + "&start_date='" + broadDate + "'" + "&end_date='" + broadDate + "'" + "&season='2022'")
-    .then(function (response) {
-      return response.json();
-    })
-.then(function(data) {
-console.log(data) 
-});
-
-
 // When document loads, get favorite team from local storage and 
 // put the value inside of the dropdown menu.
 $('document').ready(function () {
@@ -87,5 +78,3 @@ $('.show-schedule').click(function () {
   localStorage.clear()
 }, fetchSchedule);
 // Then fetch new schedule and set new favorite team
-
-broadBtn.addEventListener('click', fetchBroadcast);
