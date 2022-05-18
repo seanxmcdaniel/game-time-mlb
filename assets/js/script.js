@@ -9,15 +9,6 @@ var broadDate = moment().format("YYYYMMDD")
 var savedTeam = document.getElementById('savedTeam')
 var broadBtn = document.querySelector('.watch-game')
 
-fetch(broadApi + "&start_date='" + broadDate + "'" + "&end_date='" + broadDate + "'" + "&season='2022'")
-    .then(function (response) {
-      return response.json();
-    })
-.then(function(data) {
-console.log(data) 
-});
-
-
 // When document loads, get favorite team from local storage and 
 // put the value inside of the dropdown menu.
 $('document').ready(function () {
@@ -73,6 +64,8 @@ function fetchBroadcast() {
         } else if (data[i].home_team_abbrev === team) {
           broadInfo.textContent = 'You can watch' + data[i].home_team_full + 'play against' + data[i].away_team_full + 'today at' + data[i].game_time_home + 'on' + data[i].source_desc + ".";
           broadList.appendChild(broadInfo);
+        } else if (scheduleList) {
+          $('.scheduleList').remove();
         }
       }
     }
@@ -87,4 +80,4 @@ $('.show-schedule').click(function () {
 }, fetchSchedule);
 // Then fetch new schedule and set new favorite team
 
-broadBtn.addEventListener('click', fetchBroadcast);
+$('.watch-game').click(fetchBroadcast);
