@@ -1,3 +1,9 @@
+* {
+    margin: 8px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .center {
     display:  flex;
     justify-content: center;
