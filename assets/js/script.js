@@ -67,7 +67,7 @@ function fetchBroadcast() {
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var broadInfo = document.createElement('li');
-        // Conditionals for choosing only the broadcast info for selected team.
+        // Conditionals for choosing only the broadcast for selected teams.
         if (data[i].away_team_abbrev === selectTeam.value) {
           broadInfo.textContent = 'You can watch' + data[i].away_team_full + 'play against' + data[i].home_team_full + 'today at' + data[i].game_time_away + 'on' + data[i].source_desc + ".";
           broadList.appendChild(broadInfo);
@@ -77,9 +77,6 @@ function fetchBroadcast() {
         }
       }
     })
-  // Save selected team (value of the select in HTML) to local storage
-  localStorage.setItem('favTeam', selectTeam.value)
-  console.log(localStorage)
 };
 
 $('.show-schedule').click(fetchSchedule);
