@@ -9,18 +9,22 @@
 }
 
 li {
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(12, 10, 133);
     padding: 10px 120px;
     margin: 5px 0;
+    color: white;
 }
 
 .container {
     padding: 20px;
+    background-color: rgb(241, 52, 52);
+    color: rgb(12, 10, 133);
 }
 
 select {
     padding: 5px 80px;
     border-radius: 8px;
+    color: rgb(12, 10, 133);
 }
 
 button {
@@ -28,12 +32,18 @@ button {
     border-radius: 5px;
     border: none;
     padding: 10px;
-    background-color: rgb(78, 78, 78);
+    background-color: rgb(12, 10, 133);
     color:rgb(225, 225, 225)
 }
 
 button:hover {
-    background-color: rgb(143, 143, 143);
-    color:rgb(20, 20, 20);
+    background-color: rgb(143,143,143);
+    color:rgb(76, 41, 233);
     transition: 250ms;
+}
+img {
+    display: block;
+    position: relative;
+    top:50%;
+    left:47%;    
 }
