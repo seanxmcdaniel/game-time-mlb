@@ -41,6 +41,7 @@ select {
     padding: 5px 80px;
     border-radius: 8px;
     color: rgb(12, 11, 94);
+    background-color: rgb(233, 233, 233);
 }
 
 button {
@@ -65,4 +66,15 @@ body {
 
 label {
     font-weight: bolder;
+}
+
+@media screen and (max-width: 575px) {
+
+    select {
+        padding: 10px 92px;
+        border-radius: 8px;
+        color: rgb(12, 11, 94);
+        background-color: rgb(230, 230, 230);
+    }
+
 }
