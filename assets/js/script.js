@@ -5,7 +5,7 @@ var scheduleList = document.querySelector('.scheduleList')
 var broadList = document.querySelector('.broadList')
 var selectTeam = document.getElementById('team-select')
 var currentDay = moment().format("YYYY-MM-DDThh:mm:ss")
-var broadDate = moment().format("YYYYMMDD")
+var broadDate = moment().format("dd/MM/yyyy")
 var savedTeam = document.getElementById('savedTeam')
 var broadBtn = document.querySelector('.watch-game')
 
