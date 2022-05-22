@@ -102,5 +102,5 @@ $('.show-away').click(function () {
 // Then fetch new schedule and set new favorite team
 
 $('.standingBtn').click(function () {
-  $('.scheduleList').remove();
+  $('li').remove();
 }, fetchStats);
