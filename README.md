@@ -29,9 +29,18 @@ and Current 2022 Standings
 
 ![image](https://user-images.githubusercontent.com/102200085/169718797-1d0cf48c-aa6b-430b-ab6e-98e359b3831a.png)
 
-## GitHub PAge
+## GitHub Page
 https://seanxmcdaniel.github.io/game-time-mlb/
 
 ## GitHub Repo
 https://github.com/seanxmcdaniel/game-time-mlb
+
+### What was used
+- Bulma CSS
+- CSS
+- HTML
+- jQuery
+- Javascript
+
+
 
