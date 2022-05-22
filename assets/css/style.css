@@ -38,7 +38,7 @@ li {
 }
 
 select {
-    padding: 5px 80px;
+    padding: 5px 100px;
     border-radius: 8px;
     color: rgb(12, 11, 94);
     background-color: rgb(233, 233, 233);
@@ -67,6 +67,7 @@ body {
 label {
     font-weight: bolder;
 }
+
 
 @media screen and (max-width: 575px) {
 

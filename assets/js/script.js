@@ -1,5 +1,6 @@
 var myScheduleKey = "?key=a3812c15735a4f739f3d2de60c5fd0bd";
 var scheduleApi = "https://api.sportsdata.io/v3/mlb/scores/json/Games/2022"
+var statsApi = 'https://api.sportsdata.io/v3/mlb/scores/json/Standings/2022?key=a3812c15735a4f739f3d2de60c5fd0bd'
 var scheduleList = document.querySelector('.scheduleList')
 var standingsList = document.querySelector('.standings-list')
 const selectTeam = document.getElementById('team-select')
@@ -13,6 +14,7 @@ var broadBtn = document.querySelector('.watch-game')
 selectTeam.addEventListener('change', (event) => {
   let favoriteTeam = event.target.value;
   localStorage.setItem('Team', favoriteTeam);
+  location.reload("true");
 });
 
 if ( localStorage.getItem('Team')) {
@@ -20,7 +22,28 @@ if ( localStorage.getItem('Team')) {
 }
 
 // Fetches schedule API, returns JSON
-function fetchSchedule() {
+function fetchHome() {
+  fetch(scheduleApi + myScheduleKey)
+    .then(function (response) {
+      return response.json();
+    })
+    // Creates <li> for each game time, and appends the schedule data to a new <li>.
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var listItem = document.createElement('li');
+        // Conditionals for choosing only the schedule for selected teams.
+        if (data[i].HomeTeam === selectTeam.value) {
+          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' Date and Time: ' + data[i].DateTime;
+          scheduleList.appendChild(listItem);
+        } else if (data[i].DateTime < currentDay) {
+          $('li').remove();
+        }}
+    })
+  // Save selected team (value of the select in HTML) to local storage
+  console.log(localStorage)
+};
+
+function fetchAway() {
   fetch(scheduleApi + myScheduleKey)
     .then(function (response) {
       return response.json();
@@ -33,9 +56,6 @@ function fetchSchedule() {
         if (data[i].AwayTeam === selectTeam.value) {
           listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' Date and Time: ' + data[i].DateTime;
           scheduleList.appendChild(listItem);
-        } else if (data[i].HomeTeam === selectTeam.value) {
-          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' Date and Time: ' + data[i].DateTime;
-          scheduleList.appendChild(listItem);
         } else if (data[i].DateTime < currentDay) {
           $('li').remove();
         }}
@@ -45,30 +65,42 @@ function fetchSchedule() {
 };
 
 function fetchStats() {
-  fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103&season=2022&standingsTypes=wildCard,regularSeason&hydrate=teammlb')
-	.then(function(response) {
-    return response.json()
-  })
-    // Creates <li> for each game time, and appends the broadcast data to a new <li>.
+  fetch(statsApi)
+    .then(function (response) {
+      return response.json();
+    })
+    // Creates <li> for each game time, and appends the schedule data to a new <li>.
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
-        var statsInfo = document.createElement('li');
-        // Conditionals for choosing only the broadcast for selected teams.
-        if (data[i].divisionRank === 1) {
-          statsInfo.textContent = date[i].name + 'Division Rank:' + data[i].divisionRank + 'Wins:' + data[i].wins + 'Losses:' + data[i].losses;
-          standingsList.appendChild(statsInfo);
-        }
-      }
-    }
-  )};
+        var standingsItem = document.createElement('li');
+        // Conditionals for choosing only the schedule for selected teams.
+        if (data[i].Key === selectTeam.value) {
+          standingsItem.textContent = 'Division Rank: ' + data[i].DivisionRank + ' Wins: ' + data[i].Wins + ' Losses: ' + data[i].Losses;
+          standingsList.appendChild(standingsItem);
+        }}
+    })
+  // Save selected team (value of the select in HTML) to local storage
+  console.log(localStorage)
+};
 
-$('.show-schedule').click(fetchSchedule);
+$('.show-home').click(fetchHome);
 
 // On second click, clear local storage and remove previous schedule
-$('.show-schedule').click(function () {
+$('.show-home').click(function () {
   $('li').remove()
   localStorage.clear()
-}, fetchSchedule);
+}, fetchHome);
 // Then fetch new schedule and set new favorite team
 
-$('standingBtn').click(fetchStats);
+$('.show-away').click(fetchHome);
+
+// On second click, clear local storage and remove previous schedule
+$('.show-away').click(function () {
+  $('li').remove()
+  localStorage.clear()
+}, fetchAway);
+// Then fetch new schedule and set new favorite team
+
+$('.standingBtn').click(function () {
+  $('.scheduleList').remove();
+}, fetchStats);
