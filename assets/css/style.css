@@ -4,16 +4,13 @@
     box-sizing: border-box;
 }
 
-html { 
-    background: no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+html {
+    background: no-repeat center center fixed;
     background-size: cover;
 }
 
 .center {
-    display:  flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -21,13 +18,14 @@ html {
 .hero {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    width: 100%;
+    padding: 40px 10px;
 }
 
 li {
     background-color: rgb(12, 11, 94);
-    padding: 10px 120px;
-    margin: 5px 0;
+    padding: 10px 80px;
+    margin: 10px 0;
     color: white;
     border-radius: 8px;
 }
@@ -50,15 +48,15 @@ button {
     border: none;
     padding: 10px;
     background-color: rgb(12, 11, 94);
-    color:rgb(225, 225, 225)
+    color: rgb(225, 225, 225)
 }
 
 button:hover {
-    background-color: rgb(143,143,143);
+    background-color: rgb(143, 143, 143);
     color: rgb(12, 11, 94);
     transition: 250ms;
 }
- 
+
 body {
     height: 100vh;
     background-color: rgb(162, 20, 20);
@@ -76,6 +74,16 @@ label {
         border-radius: 8px;
         color: rgb(12, 11, 94);
         background-color: rgb(230, 230, 230);
+    }
+
+    button {
+        margin: 20px 0;
+        font-size: 12px;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        background-color: rgb(12, 11, 94);
+        color: rgb(225, 225, 225)
     }
 
 }
