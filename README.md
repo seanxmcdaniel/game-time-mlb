@@ -2,12 +2,12 @@
 Project 1 Repository
 
 
-## Website 
-- Search your favorite NLB team
-- When you search favorite team, can see home/away schedule.
-- When you search favorite team, you can display current record for 2022 season.
-- When you refresh page, favorite team stays listed 
-- when you choose a different team, that teams data loads.
+## Application
+- Search your favorite MLB team
+- When you choose your favorite team, can see their home/away schedule.
+- When you choose your favorite team, you can display current record for 2022 season.
+- When you refresh the page, your favorite team stays listed 
+- When you choose a different team, that team's data loads and will save upon refresh or revisiting application.
 
 ![image](https://user-images.githubusercontent.com/102200085/169718770-cba19d98-e4fc-4c05-8b4a-ed3943a83d9a.png)
 
@@ -15,7 +15,7 @@ Option to search favorite team
 
 ![image](https://user-images.githubusercontent.com/102200085/169718760-aecb9278-58fb-4697-8280-86a152f62df8.png)
 
-Once team is chosen, can choose
+Once team is chosen, you can choose;
 
 Home Schedule 
 
@@ -35,12 +35,13 @@ https://seanxmcdaniel.github.io/game-time-mlb/
 ## GitHub Repo
 https://github.com/seanxmcdaniel/game-time-mlb
 
-### What was used
+### Technologies Used
 - Bulma CSS
 - CSS
 - HTML
 - jQuery
 - Javascript
+- moment.js
 
 
 
