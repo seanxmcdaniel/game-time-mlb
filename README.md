@@ -2,7 +2,7 @@
 Project 1 Repository
 
 
-## Website 
+## Application
 - Search your favorite MLB team
 - When you choose your favorite team, can see their home/away schedule.
 - When you choose your favorite team, you can display current record for 2022 season.
