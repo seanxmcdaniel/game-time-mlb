@@ -8,12 +8,12 @@ var broadDate = moment().format("dd/MM/yyyy")
 var savedTeam = document.getElementById('savedTeam')
 var broadBtn = document.querySelector('.watch-game')
 const selectTeam = document.getElementById('team-select')
+const standings = document.querySelector('.standings');
 
 // Function to set full name of team to save on page on refresh instead of abbreviation
 selectTeam.addEventListener('change', (event) => {
   let favoriteTeam = event.target.value;
   localStorage.setItem('Team', favoriteTeam);
-  location.reload("true");
 });
 
 if ( localStorage.getItem('Team')) {
@@ -30,10 +30,14 @@ function fetchHome() {
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var listItem = document.createElement('li');
+        var dateItem = document.createElement('li');
         // Conditionals for choosing only the schedule for selected teams.
         if (data[i].HomeTeam === selectTeam.value) {
-          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' Date and Time: ' + moment(data[i].DateTime).format('MM/DD/YYYY h:mma');
+          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam;
           scheduleList.appendChild(listItem);
+        } if (data[i].HomeTeam === selectTeam.value) {
+          dateItem.textContent = moment(data[i].DateTime).format('MM/DD/YYYY h:mma')
+          scheduleList.appendChild(dateItem);
         } else if (data[i].DateTime < currentDay) {
           $('li').remove();
         }}
@@ -50,9 +54,13 @@ function fetchAway() {
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var listItem = document.createElement('li');
+        var dateItem = document.createElement('li');
         if (data[i].AwayTeam === selectTeam.value) {
-          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam + ' Date and Time: ' + moment(data[i].DateTime).format('MM/DD/YYYY h:mma');
+          listItem.textContent = data[i].AwayTeam + ' at ' + data[i].HomeTeam;
           scheduleList.appendChild(listItem);
+        } if (data[i].AwayTeam === selectTeam.value) {
+          dateItem.textContent = moment(data[i].DateTime).format('MM/DD/YYYY h:mma')
+          scheduleList.appendChild(dateItem);
         } else if (data[i].DateTime < currentDay) {
           $('li').remove();
         }}
